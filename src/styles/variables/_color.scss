@@ -1,0 +1,40 @@
+$theme-colors: (
+  "primary": (
+    "100": #e6f0f0,
+    "200": #c1e9e9,
+    "300": #8cdcdc,
+    "400": #5cc8c8,
+    "500": #3ebcbc,
+  ),
+  "secondary": (
+    "100": #fee8e5,
+    "200": #feccc3,
+    "300": #ffb2a7,
+    "400": #ff8277,
+    "500": #ff6b66,
+    "600": #ff4640,
+  ),
+  "basic": (
+    "100": #f4f4f4,
+    "200": #ebebeb,
+    "300": #dddddd,
+    "400": #bdbdbd,
+    "500": #757575,
+    "600": #555555,
+    "700": #333333,
+    "800": #1e1e1e,
+  ),
+  "common": (
+    "white": #ffffff,
+    "black": #000000,
+  ),
+);
+
+@function theme-color($key: "basic", $variant: "700") {
+  @if map-has-key($theme-colors, $key, $variant) {
+    $map: map-get($theme-colors, $key);
+    @return map-get($map, $variant);
+  } @else {
+    @error "해당 테마의 컬러는 등록되어있지않습니다.";
+  }
+}

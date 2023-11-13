@@ -1,27 +1,93 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "typeRoots": ["types"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    // JavaScript ECMAScript 타겟 버전 설정
+    "target": "es2022", // 가능한 값: 'es3', 'es5', 'es2015', 'es2016', 'es2017', 'es2018', 'esnext'
+
+    // 사용할 라이브러리 목록 (브라우저 DOM과 관련된 것들)
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+
+    // 정의되지 않은 변수 사용과 관련된 경고가 나타날지 여부
+    "noImplicitAny": true,
+
+    // null 또는 undefined 포함된 타입의 사용을 엄격하게 관리
+    "strictNullChecks": true,
+
+    // strict 관련 옵션 전체를 켜기
     "strict": true,
-    "noEmit": true,
+
+    // 컴파일 시 주석 제거
+    "removeComments": true,
+
+    // ES 모듈과 CommonJS 모듈을 혼합하여 사용하는 경우 활성화
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+
+    // 모듈 시스템 설정 (CommonJS 사용)
+    "module": "commonjs", // 가능한 값: 'commonjs', 'amd', 'es2015', 'esnext'
+
+    // 모듈 해결 방법 설정 (Node.js 스타일 모듈 해석)
+    "moduleResolution": "node",
+
+    // JSON 모듈을 import 하기 위한 옵션 활성화
     "resolveJsonModule": true,
+
+    // 각 파일이 독립적인 모듈로 간주되도록 설정 (전역 네임스페이스 사용 금지)
     "isolatedModules": true,
-    "jsx": "preserve",
+
+    // JSX 코드 유지 또는 변환 설정
+    "jsx": "preserve", // 또는 "react" 등을 사용할 수 있음
+
+    // 증분 컴파일 활성화
     "incremental": true,
+
+    // 절대 경로 설정
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // 자바스크립트 엄격 모드("use strict") 설정
+    "alwaysStrict": true,
+
+    // 쓰지 않는 지역 변수가 있으면 에러 발생
+    "noUnusedLocals": false,
+
+    // 쓰지 않는 파라미터가 있으면 에러 발생
+    "noUnusedParameters": false,
+
+    // 함수에서 return 빼먹으면 에러 발생
+    "noImplicitReturns": true,
+
+    // switch 문에서 case 절 이상하면 에러 발생
+    "noFallthroughCasesInSwitch": true,
+
+    // JavaScript 파일을 허용
+    "allowJs": true,
+
+    // 타입 검사를 생략 (컴파일 속도 향상)
+    "skipLibCheck": true,
+
+    // TypeScript 파일을 컴파일하지 않음
+    "noEmit": true,
+
+    // 플러그인 설정 (Next.js와 관련된 플러그인 추가)
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  // 컴파일 대상 파일 목록
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/types/custom.d.ts" // svg, png 등등의 타입선언
+  ],
+
+  // 컴파일에서 제외할 파일 목록
   "exclude": ["node_modules"]
 }
