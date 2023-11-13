@@ -9,16 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tanstack/react-query": "^5.8.3",
+    "@tanstack/react-query-next-experimental": "^5.8.3",
+    "axios": "^1.6.1",
+    "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.2"
+    "recoil": "^0.7.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tanstack/react-query-devtools": "^5.8.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.2"
+    "eslint-config-next": "14.0.2",
+    "sass": "^1.69.5",
+    "typescript": "^5"
   }
 }
